@@ -1,8 +1,6 @@
-FROM anapsix/alpine-java
+FROM java:8
 
-MAINTAINER Wurstmeister 
-
-RUN apk add --update unzip wget curl docker jq coreutils
+RUN apt-get update && apt-get -y install unzip wget curl jq coreutils docker.io net-tools
 
 ENV KAFKA_VERSION="0.10.0.0" SCALA_VERSION="2.11"
 ADD download-kafka.sh /tmp/download-kafka.sh
